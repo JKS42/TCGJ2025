@@ -31,10 +31,13 @@ public class PlayerMovement : MonoBehaviour
         {
             JumpPower.y = 0f;
         }
+        PlayerMove();
+        Jump();
     }
     public void PlayerMove()
     {
-         move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        
+        move = new Vector3(-Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
         move = Vector3.ClampMagnitude(move, moveSpeed);
 
         if (move != Vector3.zero)
