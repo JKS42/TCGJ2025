@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class SideEffectsBad : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Assuming PlayerMovement has a method to handle picking up items
+            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
+            Destroy(gameObject); // Destroy the pickup after collection
+        }
     }
 }
